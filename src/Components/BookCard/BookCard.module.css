@@ -1,0 +1,11 @@
+.BookCard {
+    display: flex;
+    width: 90%;
+}
+
+.BookInfo {
+    width: 60%;
+    margin-left: 2rem;
+    flex-wrap: wrap;
+    font-size: 1.5rem;
+}
