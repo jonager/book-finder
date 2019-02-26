@@ -6,3 +6,27 @@
     grid-row-gap: 5rem;
     margin-top: 6rem;
 }
+
+.Book {
+    font-size: 1.75rem;
+    width: 80%;
+    margin: 0 auto;
+}
+
+.Book img {
+    width: 160px;
+    height: 243px;
+}
+
+.Book__info {
+    width: 50%;
+    margin: 0 auto;
+}
+
+.Book__info i {
+    font-size: 1.75rem;
+}
+
+.Book_description {
+    font-size: 1.5rem;
+}

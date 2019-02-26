@@ -4,6 +4,7 @@ import axios from 'axios';
 
 import Books from '../Books/Books';
 import SearchBar from '../../Components/SearchBar/SearchBar';
+
 import styles from './Search.module.css';
 
 class Search extends Component {
@@ -24,7 +25,7 @@ class Search extends Component {
                 });
             })
             .catch(error => {
-                console.log(error.data);
+                console.log(error);
             });
     };
 

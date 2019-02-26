@@ -16,7 +16,7 @@ const Header = () => {
                             rel="noopener noreferrer"
                             target="_blank"
                             href="https://github.com/jonager">
-                            <i class="fab fa-github" />
+                            <i className="fab fa-github" />
                         </a>{' '}
                     </li>
                 </ul>
