@@ -9,7 +9,7 @@ import styles from './Search.module.css';
 
 class Search extends Component {
     state = {
-        books: []
+        books: null
     };
 
     timeout = null;
@@ -42,6 +42,9 @@ class Search extends Component {
         return (
             <main className={styles.Main}>
                 <SearchBar inputHandler={this.inputHandler} />
+                {!this.state.books ? (
+                    <h2 className={styles.Alert}>Nothing here yet!</h2>
+                ) : null}
                 {this.state.books ? <Books books={this.state.books} /> : null}
             </main>
         );

@@ -8,7 +8,6 @@ const SearchBar = props => {
             onKeyUp={props.inputHandler}
             placeholder="Search for a book..."
             type="text"
-            autoFocus
         />
     );
 };
