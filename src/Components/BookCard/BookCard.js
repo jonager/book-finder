@@ -1,12 +1,17 @@
 import React from 'react';
 import styles from './BookCard.module.css';
+import BookCover from '../../book-placeholder.png';
 
 const BookCard = props => {
-    // console.log(props.bookInfo.id);
+    let bookCover = props.bookInfo.volumeInfo.imageLinks;
+    let bookTitle = props.bookInfo.volumeInfo.title;
+    let bookAuthor = props.bookInfo.volumeInfo.authors;
+    let bookPublisher = props.bookInfo.volumeInfo.publisher;
+
     return (
         <div className={styles.BookCard}>
             <img
-                src={props.bookInfo.volumeInfo.imageLinks.thumbnail}
+                src={bookCover ? bookCover.thumbnail : BookCover}
                 alt="book cover"
             />
             <div className={styles.BookInfo}>
@@ -14,10 +19,10 @@ const BookCard = props => {
                     onClick={() => {
                         props.getBook(props.bookInfo.id);
                     }}>
-                    {props.bookInfo.volumeInfo.title}
+                    {bookTitle ? bookTitle : 'N/A'}
                 </h2>
-                <p>{props.bookInfo.volumeInfo.authors[0]}</p>
-                <p>{props.bookInfo.volumeInfo.publisher}</p>
+                <p>{bookAuthor ? bookAuthor[0] : 'N/A'}</p>
+                <p>{bookPublisher ? bookPublisher : 'N/A'}</p>
             </div>
         </div>
     );

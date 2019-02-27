@@ -4,6 +4,7 @@ import styles from './Books.module.css';
 
 import BookCard from '../../Components/BookCard/BookCard';
 import Modal from '../../Components/Modal/Modal';
+import BookCover from '../../book-placeholder.png';
 
 class Books extends Component {
     state = { book: null, show: false };
@@ -45,16 +46,21 @@ class Books extends Component {
         });
 
         if (this.state.book) {
+            let bookCover = this.state.book.volumeInfo.imageLinks;
+            let bookTitle = this.state.book.volumeInfo.title;
+            let bookAuthor = this.state.book.volumeInfo.authors;
+            let bookPublisher = this.state.book.volumeInfo.publisher;
+
             book = (
                 <div className={styles.Book}>
                     <img
-                        src={this.state.book.volumeInfo.imageLinks.thumbnail}
+                        src={bookCover ? bookCover.thumbnail : BookCover}
                         alt="book cover"
                     />
                     <div className={styles.Book__info}>
-                        <h2>{this.state.book.volumeInfo.title}</h2>
-                        <p>{this.state.book.volumeInfo.authors[0]}</p>
-                        <p>{this.state.book.volumeInfo.publisher}</p>
+                        <h2>{bookTitle ? bookTitle : 'N/A'}</h2>
+                        <p>{bookAuthor ? bookAuthor[0] : 'N/A'}</p>
+                        <p>{bookPublisher ? bookPublisher : 'N/A'}</p>
                         <div
                             className={styles.Book_description}
                             dangerouslySetInnerHTML={{
