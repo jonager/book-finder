@@ -9,7 +9,8 @@ import styles from './Search.module.css';
 
 class Search extends Component {
     state = {
-        books: null
+        books: null,
+        alert: 'Nothing here yet!'
     };
 
     timeout = null;
@@ -20,9 +21,15 @@ class Search extends Component {
                 `https://www.googleapis.com/books/v1/volumes?q=${searchQuery}&key=AIzaSyB9jhnttqyetAlMMosPaeVlSg19woZyovo&maxResults=20`
             )
             .then(response => {
-                this.setState({
-                    books: response.data.items
-                });
+                if (response.data.totalItems === 0) {
+                    this.setState({
+                        alert: 'No results found'
+                    });
+                } else {
+                    this.setState({
+                        books: response.data.items
+                    });
+                }
             })
             .catch(error => {
                 console.log(error);
@@ -31,6 +38,12 @@ class Search extends Component {
 
     inputHandler = event => {
         event.persist();
+        if (event.target.value.trim() === '') {
+            this.setState({
+                alert: 'Please enter a book title'
+            });
+            return;
+        }
         clearTimeout(this.timeout);
 
         this.timeout = setTimeout(() => {
@@ -43,7 +56,7 @@ class Search extends Component {
             <main className={styles.Main}>
                 <SearchBar inputHandler={this.inputHandler} />
                 {!this.state.books ? (
-                    <h2 className={styles.Alert}>Nothing here yet!</h2>
+                    <h2 className={styles.Alert}>{this.state.alert}</h2>
                 ) : null}
                 {this.state.books ? <Books books={this.state.books} /> : null}
             </main>
