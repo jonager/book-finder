@@ -22,6 +22,12 @@ body {
     -moz-osx-font-smoothing: grayscale;
 }
 
+@media only screen and (max-width: 75em) {
+    body {
+        padding: 0;
+    }
+}
+
 ul,
 ol {
     list-style: none;

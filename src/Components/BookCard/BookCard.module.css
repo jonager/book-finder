@@ -2,6 +2,7 @@
     display: flex;
     width: 90%;
     transition: 0.3s;
+    justify-self: center;
 }
 
 .BookCard:hover {
@@ -26,9 +27,41 @@
 .BookInfo h2 {
     cursor: pointer;
     font-size: 1.75rem;
+    font-weight: 700;
+}
+
+.BookInfo p {
+    color: rgb(105, 104, 104);
 }
 
 .BookInfo h2:hover {
     cursor: pointer;
     color: #f25f5c;
+}
+
+@media only screen and (max-width: 37.5em) {
+    .BookCard {
+        flex-direction: column;
+        text-align: center;
+        width: 100%;
+    }
+    .BookCard:hover {
+        transform: translateY(-4%);
+    }
+    .BookCard img {
+        margin: 0 auto;
+        justify-self: center;
+    }
+
+    .BookInfo {
+        width: 100%;
+        margin-top: 3rem;
+        margin-left: 0;
+        font-size: 1.85rem;
+    }
+
+    .BookInfo h2 {
+        font-size: 2.5rem;
+        padding: 0 6rem;
+    }
 }

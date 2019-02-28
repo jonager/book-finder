@@ -6,7 +6,21 @@
     width: 30%;
     height: 4rem;
     transition: 0.4s ease-in;
-    margin: 0 auto;
+    justify-self: center;
+}
+
+@media only screen and (max-width: 85em) {
+    .SearchBar {
+        width: 70%;
+        height: 6rem;
+        border-radius: 20px;
+    }
+}
+
+@media only screen and (max-width: 37.5em) {
+    .SearchBar {
+        width: 85%;
+    }
 }
 
 .SearchBar:focus {

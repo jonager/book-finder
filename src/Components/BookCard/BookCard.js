@@ -19,7 +19,11 @@ const BookCard = props => {
                     onClick={() => {
                         props.getBook(props.bookInfo.id);
                     }}>
-                    {bookTitle ? bookTitle : 'N/A'}
+                    {bookTitle
+                        ? bookTitle.length > 40
+                            ? bookTitle.slice(0, 40) + '...'
+                            : bookTitle
+                        : 'N/A'}
                 </h2>
                 <p>{bookAuthor ? bookAuthor[0] : 'N/A'}</p>
                 <p>{bookPublisher ? bookPublisher : 'N/A'}</p>

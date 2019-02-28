@@ -5,6 +5,12 @@
     padding: 0 10rem;
 }
 
+@media only screen and (max-width: 56.25em) {
+    .Header {
+        padding: 0 5rem;
+    }
+}
+
 .Header__left {
     display: flex;
 }
