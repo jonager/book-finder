@@ -38,9 +38,14 @@ class Search extends Component {
 
     inputHandler = event => {
         event.persist();
-        if (event.target.value.trim() === '') {
+        if (event.target.value.trim() === '' && event.target.value.length > 0) {
             this.setState({
                 alert: 'Please enter a book title'
+            });
+            return;
+        } else if (event.target.value.trim() === '') {
+            this.setState({
+                alert: 'Nothing here yet!'
             });
             return;
         }
